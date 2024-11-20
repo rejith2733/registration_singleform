@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-image: url("img2.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+        h1
+        {
+            font-weight: bold;
+            color:red;
+        
+            height:80px;
+            width: 100%;
+            text-align:center;
+            border: grey;
+            border-top: 3px;
+            border-bottom:3px;
+            padding: 0.1cm;
+
+        }
+        img{
+            height:200px;
+            width: 300px;
+            position:absolute;
+            background-attachment: fixed;
+            left:250px;
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 50%;
+          
+        }
+        .top_img{
+            height:200px;
+            width: 100%;
+            
+            
+        }
+        form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 400px;
+    position: absolute;
+    top: 600px;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: red;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-attachment: fixed;
+}
+        p{
+            text-align:center;
+        }
+        input
+        {
+            height:30px;
+            width: 200px;
+            border-radius: 2px;
+            
+        }
+        .right_img{
+            float:right;
+            height: 400px;
+
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <h1>OLINE VOTING SYSTEM</h1>
+    <div class="top_img">
+    <img src="voting_img1.jpg" alt="voting_img1">
+    <div >
+        <form id="form1">
+            <p>Enter your name</p>
+            <input type="text" name="name" id="name" required><br><br>
+            <p>Enter your age</p>
+            <input type="number" name="age" id="age" required><br><br>
+            <p>Enter your adharcard no</p>
+            <input type="number" name="adharcardno" id="adharcardno" required><br><br>
+            <p>Enter your email address</p>
+            <input type="email" name="email" id="email" required><br><br>
+            <button type="button" id="button" onclick="valid()">click it</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var adharcardno = document.getElementById("adharcardno").value;
+            var email = document.getElementById("email").value;
+
+            if (/\d/.test(name)) {
+                alert("Name is not valid. Please enter a name without numbers.");
+                return false;
+            }
+
+            if (age < 18) {
+                alert("Age is not valid. Please enter an age above or equal to 18.");
+                return false;
+            }
+
+            if (adharcardno.length !== 12) {
+                alert("Aadhar Card number is not valid. Please enter a 12-digit Aadhar Card number.");
+                return false;
+            }
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Email address is not valid. Please enter a valid email address.");
+                return false;
+            }
+
+            return true;
+        }
+
+       
+
+        function valid ()
+         {
+            var form=document.getElementById('form1');
+            var isvalid=form.checkValidity();
+            if(isvalid && validateForm())
+            {
+                alert('registered succesful');
+            }
+            else
+            {
+                alert('fill the required items');
+            }
+         }
+    </script>
+     
+    
+</body>
+</html>
